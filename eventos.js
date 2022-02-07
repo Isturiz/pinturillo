@@ -35,6 +35,7 @@ var activo = false;
 function pulsarTouch(evento)
 {
     var touch = evento.targetTouches[0];
+    color = colorElegido.value;
 
     x = touch.clientX-10;
     y = touch.clientY-15;
@@ -46,7 +47,7 @@ function moverTouch(evento)
     var touch = evento.targetTouches[0];
     if (activo)
     {
-        dibujarLinea("black", x, y, touch.clientX-5, touch.clientY-15);
+        dibujarLinea(color, x, y, touch.clientX-5, touch.clientY-15);
         x = touch.clientX-10;
         y = touch.clientY-15;
     }
