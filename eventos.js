@@ -10,7 +10,7 @@ document.addEventListener("touchstart", pulsarTouch);
 document.addEventListener("touchmove", moverTouch);
 document.addEventListener("touchend", soltarTouch);
 
-
+var colorElegido = document.getElementById("colorPincel");
 
 // Teclas de las flechas
 var teclas = 
@@ -24,7 +24,8 @@ var teclas =
 // Variables para dibujar
 var x = 150;
 var y = 150;
-var color = "black"
+var color = colorElegido.value;
+
 
 
 //
@@ -59,6 +60,9 @@ function soltarTouch()
 // Función para dibujar con el mouse
 function pulsarMouse(evento)
 {
+    
+    color = colorElegido.value;
+    console.log(color);
     activo = true;
     x = evento.offsetX;
     y = evento.offsetY;
@@ -68,7 +72,8 @@ function moverMouse(evento)
 {
     if (activo)
     {
-        dibujarLinea("black", x, y,evento.offsetX+5, evento.offsetY);
+        
+        dibujarLinea(color, x, y,evento.offsetX+5, evento.offsetY);
         x = evento.offsetX;
         y = evento.offsetY;
     }
